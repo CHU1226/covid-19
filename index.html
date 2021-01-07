@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>疫網打盡</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap-4.0.0.css">
+</head>
+<body>
+    <div id="app">
+        <div class="social-bar">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/?lang=zh-tw" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://account.line.biz/login?redirectUri=https%3A%2F%2Fmanager.line.biz%2F" target="_bland"><i class="fab fa-line"></i></a></i>
+        </div>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">首　　頁</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">關於我們</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#news">追蹤時事</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#map">數據一覽</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#person-info">個人主頁</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="signup_page" target="_blank">註冊</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link log-btn" href="#">登入</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+<!-- navbar -->
+          <section id="home">
+            <div class="home-bg">
+            </div>
+            <div class="container_fluid h-100">
+                <div class="row h-100">
+                    <div class="col-md-7 title">
+                        <div>
+                            <h1>COVID-19</h1>
+                            <h3>全民防疫 由你我做起</h3>
+                            <p>在疫情籠罩的 2020 年，如何防疫成為了全臺灣人民共同的議題，藉由科技的力量，讓大眾透過網路更直接地了解疫情的資訊，是我們的目標。</p>
+                            <a href="#about"><button class="btn btn-outline-light more">查看更多</button></a>
+                        </div>                       
+                    </div>
+                    <div class="col-md-5 earth-imgbx">
+                        <a href="#about"><img src="img/earth.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+          </section>
+          <!-- home -->
+          <section id="about">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-md-6 about-imgbx">
+                        <img :src="about.img" alt="">
+                        <h2>WHAT <br>IS <br> COVID-19</h2>
+                    </div>
+                    <div class="col-md-6 about-textbx">
+                        <div>
+                            <h1>{{about.title}}</h1>
+                            <p>{{about.content}}</p>
+                        </div>
+                        <div class="ab-btn-group">
+                            <button @click="aboutIndex = 0">關於</button>
+                            <button @click="aboutIndex = 1">起源</button>
+                            <button @click="aboutIndex = 2">病毒</button>
+                            <button @click="aboutIndex = 3">現況</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+          <!-- about -->
+          <div id="timeline">
+              <div class="container">
+                  <div class="row timeline-block">
+                  </div>
+              </div>
+          </div>
+        
+          <!-- timeline -->
+            <section id="news">
+              <div class="container_fluid h-100">
+                <div class="row h-100">
+                  <div class="col-md-8 news-main">
+                    <div class="news-main-img">
+                    </div>
+                    <!-- comment -->
+                    <div class="news-main-text">
+                      <h3 class="msg-title">留言板</h3>
+                      <div class="comment">
+                      </div>
+                      <div class="msg-box">
+                        <div>
+                          <img src="img/user-demo.png" alt="">
+                          <span class="user-name msg-username"></span>
+                        </div>
+                        <input type="text" placeholder="說點什麼吧" id="textInput">
+                        <button type="submit" id="push">送出</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- news-bar -->
+                  <div class="col-md-4 news-group">
+                    <div class="news-bar">
+                      <h3>為您推薦</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          
+<!-- news -->
+
+      <section id="map">
+        <div class="container_fluid h-100">
+          <div class="row h-100">
+            <div class="col-lg-7 chartContent">
+              <div id="chartdiv"></div>
+            </div>
+            <div class="col-lg-5">
+              <div id="infection">
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th colspan="4">全球統計表</th>
+                      </tr>
+                      <tr>
+                          <td>地區</td>
+                          <td>感染數 (單位: 萬)</td>
+                          <td>死亡數</td>
+                      </tr>
+                  </thead>
+                  <tbody class="infection-table"></tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+        <div class="container log-page">
+          <div id="log" action="">
+              <h3 class="logTitle">Log In</h3>
+              帳號<input type="text" id="account" required><br>
+              密碼<input type="password" id="password" required><br>
+              <button class="check" onclick="login()">登入</button>
+              <button class="log-close">關閉</button>
+              <div class="sign-up">
+                  <a href="signup_page.html">尚無帳號?</a>
+              </div>
+          </div>
+        </div>
+      
+
+    <!-- login -->
+    <section id="person-info">
+      <div class="container_fluid h-100">
+          <div class="row person-bg">
+              <div class="person-head">
+              </div>
+              <div class="person-introduction">
+                  <h2 class="username">尚未登入</h2>
+              </div>
+          </div>
+          <div class="container">
+              <div class="row personal-card">
+                  <div class="col-md-6 user-data">
+                      <div>姓　　名：<span class="name">尚無資料</span></div>
+                      <div>性　　別：<span class="gender">尚無資料</span></div>
+                      <div>電子信箱：<span class="email">尚無資料</span></div>
+                      <div>職　　業：<span class="Profession">尚無資料</span></div>
+                  </div>
+                  <div class="col-md-6 user-data">
+                      <div>星　　座：<span class="constellation">尚無資料</span></div>
+                      <div>血　　型：<span class="blood-type">尚無資料</span></div>
+                      <div>連絡電話：<span class="phoneNumber">尚無資料</span></div>
+                      <div>生　　日：<span class="birthday">尚無資料</span></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>
+  <!-- personal -->
+  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyD1-3rD4_j_i6GgzH3RoMlCc_a_4aH_8AY",
+        authDomain: "covid--patient.firebaseapp.com",
+        databaseURL: "https://covid--patient-default-rtdb.firebaseio.com",
+        projectId: "covid--patient",
+        storageBucket: "covid--patient.appspot.com",
+        messagingSenderId: "464863234513",
+        appId: "1:464863234513:web:6d2afa5d50fb46bd5db8f0",
+        measurementId: "G-JFE7XGKR4F"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+</script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/continentsLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/spiritedaway.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/webCrawler.js"></script> 
+    <script src="js/1.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
